@@ -1,5 +1,6 @@
 <?php
     namespace app\lib;
+    use app\view\DefaultView;
 
     /**
      *  class for application
@@ -66,7 +67,10 @@
         }
 
         public function generateView () {
-            print_r($this->controller->GetControllerVariables());
+            $ViewParam = \app\lib\router::getPath();
+            $ViewName = "app\\view\\" . end($ViewParam);
+            $this->view = new $ViewName;
+            $this->view->LoadTemplate();
 
         }
 
