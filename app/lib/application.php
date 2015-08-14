@@ -1,46 +1,73 @@
 <?php
+    namespace app\lib;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    /**
+     *  class for application
+     */
+    class application {
 
-namespace app\lib;
+        /**
+         * application instance
+         * @var app\lib\application
+         */
+        private static $selfInstance;
 
-/**
- * Description of application
- *
- * @author Piotrek
- */
-class application {
+        /**
+         *  controller of application
+         * @var mixed
+         */
+        private $controller;
 
-    private static $selfInstance;
+        /**
+         * model of application
+         * @var mixed
+         */
+        private $model;
 
-    public static function generate() {
-        if (false == self::$selfInstance) {
-            self::$selfInstance = new \app\lib\application();
+        /**
+         * @var mixed
+         */
+        private $view;
+
+        /**
+         * @return app\lib\application
+         */
+        public static function generate () {
+            if (false == self::$selfInstance) {
+                self::$selfInstance = new \app\lib\application();
+            }
+            return self::$selfInstance;
         }
-        return self::$selfInstance;
-    }
 
-    public function pisz() {
-        echo "kowal";
-    }
+        /**
+         *  generates site
+         */
+        public function generateSite () {
+            $this->generateController();
+            $this->generateModels();
+            $this->generateView();
+        }
 
-    public function generateSite() {
-        $this->generateController();
-        $this->generateModels();
-    }
+        /**generates
+         *  generates controller from URL
+         */
+        public function generateController () {
+            $controllerParam = \app\lib\router::getPath();
+            $controllerName = "app\controller\\" . end($controllerParam);
+            $this->controller = new $controllerName;
+        }
 
-    public function generateController() {
-        $controllerParam = \app\lib\router::getPath();
-        $controllerName = "app\controller\\".end($controllerParam);
-        $controller = new $controllerName;
-    }
-    
-    public function generateModels() {
-        
-    }
+        /**
+         *  generate model from URL
+         */
+        public function generateModels () {
+            $modelParam = \app\lib\router::getModel();
+            $this->model = $modelParam;
+        }
 
-}
+        public function generateView () {
+            print_r($this->controller->GetControllerVariables());
+
+        }
+
+    }

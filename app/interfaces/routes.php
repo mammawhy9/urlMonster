@@ -1,4 +1,2 @@
 <?php
-$routes = array(
-	'urlMonster' => 'mainController',
-	);
+    $routes = array('urlMonster' => 'mainController',);
