@@ -8,11 +8,8 @@
 
 namespace app\view;
 
-
 class DefaultView {
-    protected $SmartyInstance;
-
+    private $siteTitle;
     public function __construct() {
-        $this->SmartyInstance = new \Smarty();
     }
 }
