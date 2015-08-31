@@ -12,6 +12,6 @@ namespace app\view;
 class urlMonster extends DefaultView{
 
     public function LoadTemplate($TemplateName = 'default') {
-        $this->SmartyInstance->display('app\templates\\'.$TemplateName.'.tpl');
+        require('app\templates\\'.$TemplateName.'.tpl');
     }
 }
