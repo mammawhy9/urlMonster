@@ -1,6 +1,6 @@
 <?php
     namespace app\lib;
-    use app\view\DefaultView;
+
 
     /**
      *  class for application
@@ -9,7 +9,7 @@
 
         /**
          * application instance
-         * @var app\lib\application
+         * @var application
          */
         private static $selfInstance;
 
@@ -31,7 +31,7 @@
         private $view;
 
         /**
-         * @return app\lib\application
+         * @return application
          */
         public static function generate () {
             if (false == self::$selfInstance) {

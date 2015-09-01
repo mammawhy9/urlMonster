@@ -12,6 +12,8 @@ namespace app\view;
 class urlMonster extends DefaultView{
 
     public function LoadTemplate($TemplateName = 'default') {
-        require('app\templates\\'.$TemplateName.'.tpl');
+        $nazwa = $TemplateName . '.php';
+        $site_title = 'Strona Default';
+        require __DIR__ . '/../templates/' . $nazwa;
     }
 }

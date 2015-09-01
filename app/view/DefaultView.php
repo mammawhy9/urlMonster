@@ -8,8 +8,10 @@
 
 namespace app\view;
 
+
 class DefaultView {
-    private $siteTitle;
+
+
     public function __construct() {
     }
 }
