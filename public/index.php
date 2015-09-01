@@ -1,4 +1,5 @@
 <?php
+// TODO: porządek w kodzie, standardy
     ini_set('display_errors', 'On');
     error_reporting(E_ALL);
     chdir(dirname(__DIR__));

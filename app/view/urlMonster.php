@@ -6,6 +6,7 @@
  * Time: 12:38
  */
 
+//TODO: zrobic porządny routing, przeniesc LoadTemplate do abstraktu
 namespace app\view;
 
 
