@@ -9,14 +9,10 @@
     namespace app\model;
 
 
-    class ModelDefault {
+    class urlMonster extends ModelDefault {
 		protected $params;
 
 		public function getParams() {
-			if(isset($this->params) || empty($this->params)) {
-				return $params;
-			} else {
-				return false;
-			}
+
 		}
     }

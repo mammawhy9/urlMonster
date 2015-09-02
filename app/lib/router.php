@@ -1,9 +1,7 @@
 <?php
 
     /*
-     * To change this license header, choose License Headers in Project Properties.
-     * To change this template file, choose Tools | Templates
-     * and open the template in the editor.
+     * TODO: zaimplementować routing dla stron , modulow i kontrolerow
      */
 
     namespace app\lib;
@@ -30,7 +28,7 @@
             $zm = $_SERVER['REQUEST_URI'];
             $condition = strpos($zm, '?');
             if ($condition) {
-                $zm = substr($zm, $condition);
+                $zm = substr($zm, $condition+1);
                 return $zm;
             } else {
                 return null;

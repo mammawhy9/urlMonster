@@ -6,12 +6,18 @@
  * Time: 12:38
  */
 
+//TODO: zrobic porządny routing, przeniesc LoadTemplate do abstraktu
 namespace app\view;
 
 
 class urlMonster extends DefaultView{
 
-    public function LoadTemplate($TemplateName = 'default') {
-        $this->SmartyInstance->display('app\templates\\'.$TemplateName.'.tpl');
-    }
+	/*
+	 * do wdrożenie do DefaultView
+	* public function LoadTemplate($TemplateName = 'default') {
+        $nazwa = $TemplateName . '.php';
+        $site_title = 'Strona Default';
+        require __DIR__ . '/../templates/' . $nazwa;
+	}
+	*/
 }

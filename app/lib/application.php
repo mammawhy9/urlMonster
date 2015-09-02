@@ -1,6 +1,6 @@
 <?php
     namespace app\lib;
-    use app\view\DefaultView;
+
 
     /**
      *  class for application
@@ -9,7 +9,7 @@
 
         /**
          * application instance
-         * @var app\lib\application
+         * @var application
          */
         private static $selfInstance;
 
@@ -31,7 +31,7 @@
         private $view;
 
         /**
-         * @return app\lib\application
+         * @return application
          */
         public static function generate () {
             if (false == self::$selfInstance) {
@@ -46,7 +46,7 @@
         public function generateSite () {
             $this->generateController();
             $this->generateModels();
-            $this->generateView();
+			$this->generateView();
         }
 
         /**generates
@@ -62,16 +62,25 @@
          *  generate model from URL
          */
         public function generateModels () {
-            $modelParam = \app\lib\router::getModel();
-            $this->model = $modelParam;
+			$modelParam = \app\lib\router::getModel();
+			$ModelPath = \app\lib\router::getPath();
+			$ModelName = "app\model\\" . end($ModelPath);
+			$this->model =new  $ModelName;
         }
 
         public function generateView () {
             $ViewParam = \app\lib\router::getPath();
             $ViewName = "app\\view\\" . end($ViewParam);
-            $this->view = new $ViewName;
-            $this->view->LoadTemplate();
+			$this->view = new $ViewName;
+			$this->routeParamsToView();
+			$this->view->LoadTemplate();
 
-        }
+		}
+
+		public function routeParamsToView() {
+			if(isset($this->view) && (isset($this->model))) {
+				$this->view->params = $this->model->getParams();
+			}	
+		}
 
     }
