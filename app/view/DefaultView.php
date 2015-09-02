@@ -16,7 +16,8 @@ class DefaultView {
 	protected $content;
 	
 	protected $footer;
-	
+
+	protected $params;
 	
 
     public function __construct() {
@@ -32,7 +33,7 @@ class DefaultView {
 	protected function loadHead() {
 		
 
-		$site_title = 'Strona Default';		$TemplateName = \app\lib\config::getModulePath('head');
+		$site_title = 'Strona Default';		$TemplateName = \app\lib\config::getModulePath('head',$this->getClassName());
         $nazwa = $TemplateName . '.php';
 		$PathToFile = __DIR__ . '/../templates/' . $nazwa;
 		if(!file_exists($PathToFile)) {
@@ -45,9 +46,9 @@ class DefaultView {
 	protected function loadBody() {
 		
 
-	$TemplateName = \app\lib\config::getModulePath('body');
+	$TemplateName = \app\lib\config::getModulePath('body',$this->getClassName());
         $nazwa = $TemplateName . '.php';
-		$PathToFile = __DIR__ . '/../templates/' . $nazwa;
+	$PathToFile = __DIR__ . '/../templates/' . $nazwa;
 		if(!file_exists($PathToFile)) {
 			$PathToFile = __DIR__ . '/../templates/default_body.php';
 		}
@@ -60,7 +61,7 @@ class DefaultView {
 
 	protected function loadHeadline() {
 		
-        	$TemplateName = \app\lib\config::getModulePath('headline');
+        	$TemplateName = \app\lib\config::getModulePath('headline',$this->getClassName());
         $nazwa = $TemplateName . '.php';
 		$PathToFile = __DIR__ . '/../templates/' . $nazwa;
 		if(!file_exists($PathToFile)) {
@@ -73,7 +74,7 @@ class DefaultView {
 	}
 	
 	protected function loadMedium() {
-		$TemplateName = \app\lib\config::getModulePath('medium');
+		$TemplateName = \app\lib\config::getModulePath('medium',$this->getClassName());
         $nazwa = $TemplateName . '.php';
 		$PathToFile = __DIR__ . '/../templates/' . $nazwa;
 		if(!file_exists($PathToFile)) {
@@ -86,7 +87,7 @@ class DefaultView {
 	}
 
 	protected function loadBottom() {
-			$TemplateName = \app\lib\config::getModulePath('bottom');
+			$TemplateName = \app\lib\config::getModulePath('bottom',$this->getClassName());
         $nazwa = $TemplateName . '.php';
 		$PathToFile = __DIR__ . '/../templates/' . $nazwa;
 		if(!file_exists($PathToFile)) {
@@ -98,7 +99,7 @@ class DefaultView {
 	}
 
 	protected function loadContent() {
-		$TemplateName = \app\lib\config::getModulePath('content');
+		$TemplateName = \app\lib\config::getModulePath('content',$this->getClassName());
         $nazwa = $TemplateName . '.php';
 		$PathToFile = __DIR__ . '/../templates/' . $nazwa;
 		if(!file_exists($PathToFile)) {
@@ -109,18 +110,17 @@ class DefaultView {
 		
 	}
 
-	protected function loadMenu() {	$TemplateName = \app\lib\config::getModulePath('menu');
+	protected function loadMenu() {	$TemplateName = \app\lib\config::getModulePath('menu',$this->getClassName());
         $nazwa = $TemplateName . '.php';
 		$PathToFile = __DIR__ . '/../templates/' . $nazwa;
 		if(!file_exists($PathToFile)) {
 			$PathToFile = __DIR__ . '/../templates/default_menu.php';
 		}
 		require $PathToFile;
-
 		
 	}
 	
-	protected function loadFooter() {	$TemplateName = \app\lib\config::getModulePath('footer');
+	protected function loadFooter() {	$TemplateName = \app\lib\config::getModulePath('footer',$this->getClassName());
         $nazwa = $TemplateName . '.php';
 		$PathToFile = __DIR__ . '/../templates/' . $nazwa;
 		if(!file_exists($PathToFile)) {
@@ -129,6 +129,15 @@ class DefaultView {
 		require $PathToFile;
 
 		
+	}
+
+	public function setParams(Array $params) {
+		$this->params = $params;
+	}
+
+	public function getClassName(){
+		$class = explode('\\', get_called_class());
+        return array_pop($class);
 	}
 
 

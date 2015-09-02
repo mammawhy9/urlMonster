@@ -10,9 +10,6 @@
 
 
     class urlMonster extends ModelDefault {
-		protected $params;
 
-		public function getParams() {
 
-		}
     }

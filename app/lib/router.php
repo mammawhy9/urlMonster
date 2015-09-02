@@ -1,9 +1,6 @@
 <?php
 
-    /*
-     * TODO: zaimplementować routing dla stron , modulow i kontrolerow
-     */
-
+	// TODO: zaimplementować routing dla stron, modułów i kontrolerów
     namespace app\lib;
 
     /**
@@ -28,7 +25,7 @@
             $zm = $_SERVER['REQUEST_URI'];
             $condition = strpos($zm, '?');
             if ($condition) {
-                $zm = substr($zm, $condition+1);
+                $zm = substr($zm, $condition);
                 return $zm;
             } else {
                 return null;

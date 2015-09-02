@@ -79,7 +79,7 @@
 
 		public function routeParamsToView() {
 			if(isset($this->view) && (isset($this->model))) {
-				$this->view->params = $this->model->getParams();
+				$this->view->setParams($this->model->getParams());
 			}	
 		}
 

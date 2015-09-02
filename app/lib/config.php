@@ -23,7 +23,8 @@
 		 */
 		private $baseParams;
 
-        public static function setRoutes () {
+		public static function setRoutes () {
+			
 			require __DIR__ . '/../../config/modules.php';
 			self::$modules = $template;
 		}
@@ -32,9 +33,9 @@
 
 		}
 
-        public static function getModulePath ($module_name) {
-			if(isset(self::$modules[$module_name])) {
-				return self::$modules[$module_name];
+        public static function getModulePath ($partName,$moduleName) {
+			if(isset(self::$modules[$moduleName][$partName])) {
+				return self::$modules[$moduleName][$partName];
 			} else {
 				return false;
 			}

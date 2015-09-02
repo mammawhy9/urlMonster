@@ -1,9 +1,7 @@
 <?php
 
-    /*
-     * TODO: ogarnąć i stworyć dobry interfejs do mysql
-     */
-
+ 
+	//TODO: ogarnąć i stworzyć dobry interfejs do mysql
     namespace app\lib;
 
     /**

@@ -7,16 +7,15 @@
      */
 
     namespace app\model;
-
+    
 
     class ModelDefault {
-		protected $params;
+        protected $params;
+        
+        public function getParams(){
+          if(isset($this->params)&&(!empty($this->params))) {
+              return $this->params;
+          } else return array();
+        }
 
-		public function getParams() {
-			if(isset($this->params) || empty($this->params)) {
-				return $params;
-			} else {
-				return false;
-			}
-		}
     }
