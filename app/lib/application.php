@@ -17,7 +17,7 @@
          *  controller of application
          * @var mixed
          */
-        private $controller;
+        public $controller;
 
         /**
          * model of application

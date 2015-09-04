@@ -17,19 +17,27 @@
 		 */ 
 		private static $modules;
 
-        /* 
+		/*
 		 * tablica z passami do bazy 
 		 * @var array
 		 */
-		private $baseParams;
+		private static $baseParams;
+		
+		public function __construct() {
+			self::setRoutes();
+			self::setBaseParams();
+		}
 
 		public static function setRoutes () {
-			
 			require __DIR__ . '/../../config/modules.php';
 			self::$modules = $template;
+
 		}
 		
-		public static function getBaseParams() {
+		
+		public static function setBaseParams() {
+			require __DIR__ . '/../../config/base.php';
+			self::$baseParams = $baseParams;
 
 		}
 

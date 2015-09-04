@@ -12,7 +12,6 @@
 
         public function __construct () {
 			$this->config = new \app\lib\config();
-			$this->config->setRoutes();
         }
 
         public static function route ($path) {

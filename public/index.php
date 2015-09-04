@@ -23,6 +23,5 @@ $application->generateSite();
 //  echo " <pre>";
 echo var_dump($application);
 //   echo "</pre>";
-
-
+echo var_dump($application->controller->config);
 
