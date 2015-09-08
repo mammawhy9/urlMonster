@@ -8,20 +8,15 @@
      */
     class controller_default {
 
-        /**
-         * @var array
-         */
-        private $SelfVariables;
+	    public $config;
 
         public function __construct () {
-            $this->SelfVariables = array('nic' => 'kowal');
+			$this->config = new \app\lib\config();
+			$this->config->setRoutes();
         }
 
         public static function route ($path) {
             header("Location: " . $path);
         }
-
-        public function GetControllerVariables () {
-            return $this->SelfVariables;
-        }
+        
     }

@@ -1,7 +1,6 @@
 <?php
 
-    //TODO: zrobić routing dla controlerów
-
+	//TODO: zrobić routing dla kontrolerów
     namespace app\controller;
 
     /**

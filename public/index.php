@@ -14,13 +14,15 @@ function autoload($className)
         $fileName = str_replace('\\', DIRECTORY_SEPARATOR, $namespace) . DIRECTORY_SEPARATOR;
     }
     $fileName .= str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
-
     require $fileName;
 }
 
 spl_autoload_register('autoload');   //$kon = new app\controller\controller_default();
-$application = app\lib\application::generate();
+$application = \app\lib\application::generate();
 $application->generateSite();
 //  echo " <pre>";
-//echo var_dump($application);
+echo var_dump($application);
 //   echo "</pre>";
+
+
+
