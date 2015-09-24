@@ -8,11 +8,11 @@
      */
     class controller_default {
 
-	    public $config;
+        public $config;
 
         public function __construct () {
-			$this->config = new \app\lib\config();
-			$this->config->setRoutes();
+            $this->config = new \app\lib\config();
+            $this->config->setRoutes();
         }
 
         public static function route ($path) {

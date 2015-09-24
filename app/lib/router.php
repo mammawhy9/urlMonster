@@ -1,6 +1,6 @@
 <?php
 
-	// TODO: zaimplementować routing dla stron, modułów i kontrolerów
+    // TODO: zaimplementować routing dla stron, modułów i kontrolerów
     namespace app\lib;
 
     /**

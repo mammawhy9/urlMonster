@@ -9,36 +9,36 @@
      * Description of config
      * @author Piotrek
      */
-	class config {
-		
-		/*
-		 * tablica z sciezkami do modulow
-		 * @var array
-		 */ 
-		private static $modules;
+    class config {
 
-        /* 
-		 * tablica z passami do bazy 
-		 * @var array
-		 */
-		private $baseParams;
+    /*
+     * tablica z sciezkami do modulow
+     * @var array
+     */ 
+    private static $modules;
 
-		public static function setRoutes () {
-			
-			require __DIR__ . '/../../config/modules.php';
-			self::$modules = $template;
-		}
-		
-		public static function getBaseParams() {
+    /* 
+     * tablica z passami do bazy 
+     * @var array
+     */
+    private $baseParams;
 
-		}
+    public static function setRoutes () {
+
+    require __DIR__ . '/../../config/modules.php';
+    self::$modules = $template;
+    }
+
+    public static function getBaseParams() {
+
+    }
 
         public static function getModulePath ($partName,$moduleName) {
-			if(isset(self::$modules[$moduleName][$partName])) {
-				return self::$modules[$moduleName][$partName];
-			} else {
-				return false;
-			}
-		}
+            if(isset(self::$modules[$moduleName][$partName])) {
+                return self::$modules[$moduleName][$partName];
+            } else {
+                return false;
+            }
+        }
 
     }
